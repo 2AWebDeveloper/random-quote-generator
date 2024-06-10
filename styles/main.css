@@ -1,0 +1,198 @@
+* {
+	padding: 0px;
+	margin: 0px;
+    box-sizing: border-box;
+}
+
+@font-face {
+	font-family: "Work-Sans";
+	src: url(../assets/fonts/WorkSans-Regular.ttf) format(truetype);
+	font-weight: 400;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Work-Sans";
+	src: url(../assets/fonts/WorkSans-SemiBold.ttf) format(truetype);
+	font-weight: 600;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Work-Sans";
+	src: url(../assets/fonts/WorkSans-Bold.ttf) format(truetype);
+	font-weight: 700;
+	font-display: swap;
+}
+
+body {
+	font-family: "Work-Sans";
+}
+section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	min-height: 100vh;
+	padding: 1.25rem;
+	background-color:hsla(269,3%,9%,1);
+	background-image:
+	radial-gradient(at 71% 11%, hsla(239,70%,21%,0.53) 0px, transparent 50%),
+	radial-gradient(at 40% 81%, hsla(328,60%,14%,0.64) 0px, transparent 50%);
+}
+.quote {
+	position: relative;
+	max-width: 450px;
+	width: 100%;
+	padding: 2.25rem 2.75rem;
+	background-color: rgba(255, 255, 255, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	border-radius: 0px 50px;
+	backdrop-filter: blur(6px);
+	text-align: center;
+	transition: all 0.4s ease;
+}
+.quote-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	width: 3.5rem;
+	height: 3.5rem;
+	border-radius: 15px;
+	background-color: #f9fafb;
+	box-shadow: 0 0 20px 16px rgba(255, 255, 255, 0.050);
+
+}
+.quote-icon.top {
+	top: -1.25rem;
+	left: 1.25rem;
+}
+.quote-icon.bottom {
+	bottom: -1.25rem;
+	right: 1.25rem;
+}
+.quote-icon svg {
+	color: #3f3f46;
+	width: 1.5rem;
+	height: 1.5rem;
+}
+.quote-title {
+	font-size: 1.875rem;
+	font-weight: 700;
+	color: #f9fafb;
+	margin-bottom: 1.5rem;
+}
+.quote-text {
+	color: #d4d4d4;
+	opacity: 0.9;
+	font-size: 0.875rem;
+	line-height: 1.4;
+	text-align: center;
+	margin-bottom: 1.5rem;
+}
+.quote-author {
+	font-size: 0.875rem;
+	font-weight: 600;
+	color: #f9fafb;
+}
+.quote-date {
+	color: #d4d4d4;
+	opacity: 0.9;
+	font-size: 0.75rem;
+}
+.quote-generate {
+	font-family: inherit;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.25rem;
+	margin: 1.5rem auto 0.4rem auto;
+	padding: 0.625rem;
+	background-color: rgba(255, 255, 255, 0.1);
+	color: #d4d4d4;
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	border-radius: 10px;
+	outline: none;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+.quote-generate:hover {
+	color: #f9fafb;
+	background-color: rgba(255, 255, 255, 0.16);
+	box-shadow: 0 0 10px 6px rgba(255, 255, 255, 0.03);
+}
+.quote-generate:disabled {
+	color: #d4d4d4;
+	background-color: rgba(255, 255, 255, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	cursor: auto;
+	box-shadow: none;
+}
+.error-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 3.5rem;
+	height: 3.5rem;
+	border-radius: 15px;
+	background-color: #f9fafb;
+	margin: 0 auto;
+	margin-top: -4rem;
+	box-shadow: 0 0 20px 16px rgb(255, 0, 0, 0.1);
+}
+.error-icon svg {
+	color: #dc2626;
+}
+.error-title {
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: #f9fafb;
+	margin-top: 2rem;
+	margin-bottom: 0.875rem;
+}
+.error-message {
+	color: #d4d4d4;
+	opacity: 0.9;
+	font-size: 0.875rem;
+	line-height: 1.4;
+	text-align: center;
+}
+.active {
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+}
+.loader {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	inset: 0;
+	z-index: 999;
+	backdrop-filter: blur(10px);
+	transition: all 0.4s ease;
+}
+.loader-icon {
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 8px solid #fff;
+    animation:
+      l20-1 0.8s infinite linear alternate,
+      l20-2 1.6s infinite linear;
+}
+@keyframes l20-1{
+     0%    {clip-path: polygon(50% 50%,0       0,  50%   0%,  50%    0%, 50%    0%, 50%    0%, 50%    0% )}
+     12.5% {clip-path: polygon(50% 50%,0       0,  50%   0%,  100%   0%, 100%   0%, 100%   0%, 100%   0% )}
+     25%   {clip-path: polygon(50% 50%,0       0,  50%   0%,  100%   0%, 100% 100%, 100% 100%, 100% 100% )}
+     50%   {clip-path: polygon(50% 50%,0       0,  50%   0%,  100%   0%, 100% 100%, 50%  100%, 0%   100% )}
+     62.5% {clip-path: polygon(50% 50%,100%    0, 100%   0%,  100%   0%, 100% 100%, 50%  100%, 0%   100% )}
+     75%   {clip-path: polygon(50% 50%,100% 100%, 100% 100%,  100% 100%, 100% 100%, 50%  100%, 0%   100% )}
+     100%  {clip-path: polygon(50% 50%,50%  100%,  50% 100%,   50% 100%,  50% 100%, 50%  100%, 0%   100% )}
+}
+@keyframes l20-2{ 
+    0%    {transform:scaleY(1)  rotate(0deg)}
+    49.99%{transform:scaleY(1)  rotate(135deg)}
+    50%   {transform:scaleY(-1) rotate(0deg)}
+    100%  {transform:scaleY(-1) rotate(-135deg)}
+}
