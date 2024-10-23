@@ -27,10 +27,15 @@ const getQuote = async function() {
         quoteGenerateBtn.setAttribute("disabled", true);
         quote.classList.add("active");
 
-        const response = await fetch("https://api.quotable.io/random");
+        const response = await fetch("https://api.api-ninjas.com/v1/quotes", {
+            headers: {
+                'X-Api-Key': 'rLKyBu4GL01KhD2RlDYWBg==MPFrj88aEBoeuDaP'
+            },
+            contentType: 'application/json',
+        });
 
         if (response.ok) {
-            const data = await response.json();
+            const [data] = await response.json();
             generateQuote(data);
         }
     } catch (error) {
@@ -44,9 +49,9 @@ const getQuote = async function() {
 
 const generateQuote = function(quote) {
     quoteElement = `
-        <p class="quote-text">${quote.content}</p>
+        <p class="quote-text">${quote.quote}</p>
         <h3 class="quote-author">${quote.author}</h3>
-        <span class="quote-date">${quote.dateAdded}</span>
+        <span class="quote-date">${quote.category}</span>
     `;
     quoteContent.innerHTML = quoteElement;
 };
